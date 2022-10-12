@@ -30,6 +30,7 @@ int main(void)
 
 		_mm256_storeu_si256((__m256i *)&(c[i]), mm_c); //c[i..i+7] = mm_c
 	}
+	
 
 	printf("c:\n");
 	for (i = 0; i < N; i++)
