@@ -9,9 +9,8 @@ int main(int argc, char const *argv[])
     int fileSize1 = 1080000;
     int fileSize2 = 4320000;
     char header[headerSize];
-    int i;
-    int j;
-
+    int i, j;
+    
 
     //Allocated the memory space
     char *file1 = (char *)malloc(fileSize1 * sizeof(char));
@@ -21,7 +20,7 @@ int main(int argc, char const *argv[])
 
     FILE *space_1 = fopen("space_1.bmp", "rb");
     FILE *space_2 = fopen("space_2.bmp", "rb");
-    FILE *new_space_file = fopen("space_merged.bmp", "wb");
+    FILE *new_space_file = fopen("space_new.bmp", "wb");
 
     //Check the files
     if (space_2 == NULL || space_1 == NULL || new_space_file == NULL)
