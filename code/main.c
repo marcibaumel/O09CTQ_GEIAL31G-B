@@ -11,7 +11,6 @@ int main(int argc, char const *argv[])
     char header[headerSize];
     int i, j;
     
-
     //Allocated the memory space
     char *file1 = (char *)malloc(fileSize1 * sizeof(char));
     char *file2= (char *)malloc((fileSize2) * sizeof(char));
@@ -31,6 +30,8 @@ int main(int argc, char const *argv[])
 
     // Reading and set headers from file1
     fread(header, sizeof(char), headerSize, space_1);
+
+    //sets the file position of the stream to the given offset. (beginning)
     fseek(space_2, headerSize, SEEK_SET);
 
     // Read the file1 and file2 picture data
@@ -42,6 +43,8 @@ int main(int argc, char const *argv[])
     char *file2Row = (char *)malloc(fileSize1 * sizeof(char));
 
     // Check the color value
+    // i value equals color bit 
+    // j value equals the picture width  
     for (i = 0, j = 0; j < fileSize1 - 3600; i += 6, j += 3)
     {
         //See the column
@@ -61,11 +64,13 @@ int main(int argc, char const *argv[])
         //Check end of the row
         if ((i % 3600) == 0)
         {
+            //Next row
             i += 3600;
         }
     }
 
-    // Merging the body for the new image
+    // Merging the body for the new image by bit
+    // 4 x 1 byte -> 32 bit  
     for (i = 0; i < fileSize1; i += 32)
     {
         //Moves integer values from unaligned memory location to a destination vector
