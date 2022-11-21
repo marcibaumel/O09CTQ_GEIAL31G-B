@@ -5,7 +5,7 @@
 int main(int argc, char const *argv[])
 {
     //Need variables 
-    int headerSize = 112;
+    int headerSize = 54;
     int fileSize1 = 1080000;
     int fileSize2 = 4320000;
     char header[headerSize];
